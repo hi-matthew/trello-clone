@@ -1,0 +1,185 @@
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Century Gothic', 'Helvetica', 'Sans';
+}
+
+nav {
+  width: 100vw;
+  height: 8vh;
+  background-color: #0067A3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 20px;
+  font-style: italic;
+  font-family: 'Kaushan Script', cursive;
+}
+
+.lists-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: #0079BF;
+  padding: 20px 0 0 20px;
+  box-sizing: border-box;
+}
+
+.board-name {
+  color: rgba(255, 255, 255, 0.9);
+  font-style: italic;
+  padding-left: 10px;
+  width: 175px;
+  height: 35px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.board-name:hover {
+  background-color: rgba(0, 84, 133, 0.5);
+}
+
+/* Rename Board Styles */
+.rename-board {
+  display: none;
+  flex-direction: column;
+  width: 400px;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 1);
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center; 
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.rename-board.open {
+  display: flex;
+}
+
+.heading {
+  flex: 1; 
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  flex: 25;
+}
+
+.heading:after {
+  position: relative;
+  content: '';
+  background-color: lightgrey;
+  width: 350px;
+  height: 1px;
+  margin-bottom: 8px;
+  flex: 1;
+}
+
+.heading span {
+  flex: 7;
+  transform: translateX(35%);
+}
+
+.fas.fa-times {
+  position: relative;
+  color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.fas.fa-times:hover {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.text-field {
+  flex: 3;
+  display: flex;
+}
+
+form {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+label[for='board-name'] {
+  margin: 5px 0 0 -251px;
+}
+
+input[type='text'] {
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  width: 300px;
+  flex: 1;
+  margin: 5px 0 15px;
+  font-size: 14px;
+  padding-left: 8px;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.95);
+  font-family: 'Century Gothic';
+}
+
+input[type='text']::placeholder {
+  font-family: 'Century Gothic';
+}
+
+input[type='submit'] {
+  color: white;
+  background-color: rgb(79, 185, 115); 
+  width: 75%;
+  height: 100%;
+  border-radius: 5px;
+  margin: 5px 0 15px;
+  flex: 1.25;
+  font-size: 15px;
+  font-family: 'Century Gothic';
+}
+/* End Rename Board Styles */
+
+.add-list-container {
+  list-style: none;
+  display: flex;
+  padding: 0 0;
+  margin: 20px 0 0;
+}
+
+.add-list-container li {
+  background-color: rgba(0, 84, 133, 0.5);
+  border-radius: 5px;
+  height: 40px;
+  display: flex;
+  width: 275px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.add-list-container li ~ li {
+  margin-left: 20px;
+}
+
+.add-list-container li:hover {
+  background-color: rgba(0, 84, 133, 0.7);
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+} 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Trello Clone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+</head>
+
+<body>
+  <nav>
+    <span>My Trello Clone</span>
+  </nav>
+  <div class="lists-container">
+    <div class="board-name">
+      <span>Name Your Board</span>
+    </div>
+    <div class="rename-board">
+      <div class="rename-board heading">
+        <div class="rename-board header">
+          <span>Rename Your Board</span>
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+      <div class="rename-board text-field">
+        <form>
+          <label for="board-name">Name</label>
+          <input type="text" name="board-name" placeholder="The best board ever" autofocus>
+          <input type="submit" value="Rename">
+        </form>
+      </div>
+    </div>
+    <ul class="add-list-container">
+      <li>+ Add a list</li>
+      <li>+ Add a list</li>
+    </ul>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
