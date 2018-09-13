@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 
 <head>
@@ -13,35 +13,47 @@
 </head>
 
 <body>
-  <nav>
-    <span>My Trello Clone</span>
-  </nav>
-  <div class="lists-container">
-    <div class="board-name">
-      <span>Name Your Board</span>
-    </div>
-    <div class="rename-board">
-      <div class="rename-board heading">
-        <div class="rename-board header">
-          <span>Rename Your Board</span>
-          <i class="fas fa-times"></i>
+  <div class="board-container">
+    <nav>
+      <span>My Trello Clone</span>
+    </nav>
+    <div class="utility-belt">
+      <div class="name-your-board">
+        <span class="board-name">
+          Name Your Board
+        </span>
+        <div class="rename-board wrapper">
+          <div class="rename-board header">
+            <span class="invisibile"></span>
+            <p>Rename Your Board</p>
+            <i class="fas fa-times close-board"></i>
+          </div>
+          <form>
+            <label for="board-name">Name</label>
+            <input type="text" name="board-name" placeholder="The best board ever" autofocus autocomplete="off">
+            <input type="submit" value="Rename">
+          </form>
         </div>
       </div>
-      <div class="rename-board text-field">
-        <form>
-          <label for="board-name">Name</label>
-          <input type="text" name="board-name" placeholder="The best board ever" autofocus>
-          <input type="submit" value="Rename">
-        </form>
+    </div>
+    <div class="canvas">
+      <div class="add-list-button">
+        <span class='add-list'>+ Add a list</span>
+        <div class="create-list">
+          <div class="create-list-header">
+            <span class="invisibile"></span>
+            <p>Add a List</p>
+            <i class="fas fa-times close-list"></i>
+          </div>
+          <form>
+            <input type="text" name="list-title" placeholder="Enter list title" autofocus autocomplete="off">
+            <input type="submit" value="Add List">
+          </form>
+        </div>
       </div>
     </div>
-    <ul class="add-list-container">
-      <li>+ Add a list</li>
-      <li>+ Add a list</li>
-    </ul>
-  </div>
 
-  <script src="index.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
