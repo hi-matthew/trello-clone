@@ -348,11 +348,7 @@ input[type='submit'] {
   display: flex;
   align-items: center;
   position: relative;
-  padding: 8px 15px;
-}
-
-.card-heading:hover {
-  cursor: pointer;
+  padding: 4px 15px 0;
 }
 
 .card-title {
@@ -367,12 +363,14 @@ input[type='submit'] {
   align-items: center;
 }
 
-.card-options i:hover {
-  cursor: pointer;
-  /* background-color: rgb(255, 255, 255);
-  transition: background-color 6000ms ease; */
+.card-options .move-list:hover {
+  cursor: grab;
   transform-origin: center center;
   animation: inflate 900ms linear infinite forwards;
+}
+
+.card-options .fa-ellipsis-h:hover {
+  background-color: white;
 }
 
 @keyframes inflate {
@@ -491,9 +489,8 @@ input[type='submit'] {
 .card-content {
   display: flex;
   flex-direction: column;
-  padding: 0 15px 0px;
+  padding: 6px 15px;
   align-items: center;
-  height: auto;
 }
 
 .card-content div {
@@ -510,7 +507,7 @@ input[type='submit'] {
 }
 
 .card-content div:last-child {
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 
 .sub-card {
