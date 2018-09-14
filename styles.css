@@ -45,6 +45,7 @@ nav {
   width: auto;
   height: 35px;
   border-radius: 5px;
+  transition: background-color 400ms ease;
 }
 
 .name-your-board:hover {
@@ -145,6 +146,7 @@ nav {
 .fas {
   position: relative;
   color: rgba(0, 0, 0, 0.7);
+  transition: background-color 300ms ease;
 }
 
 .fas::before {
@@ -239,6 +241,7 @@ input[type='submit'] {
   color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
   padding-left: 15px;
+  transition: background-color 400ms ease;
 }
 
 .add-list:hover {
@@ -354,6 +357,7 @@ input[type='submit'] {
 
 .card-title {
   flex: 1;
+  padding: 5px 0;
 }
 
 .card-options {
@@ -365,11 +369,23 @@ input[type='submit'] {
 
 .card-options i:hover {
   cursor: pointer;
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(255, 255, 255);
+  transition: background-color 6000ms ease; */
+  transform-origin: center center;
+  animation: inflate 900ms linear infinite forwards;
 }
 
-.card-options:active {
-  background-color:rgb(182, 182, 182);
+@keyframes inflate {
+  0% {
+    transform: scale(1);
+  }
+  70% {
+    background-color: rgb(255, 255, 255);
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .add-card-details {
@@ -444,14 +460,14 @@ input[type='submit'] {
   }
 }
 
-textarea {
-  width: 93%;
+.add-card-details.open .card-details-input {
+  width: 100%;
   border-radius: 5px;
   border: 1px solid grey;
-  padding: 8px 8px;
   font-size: 14px;
   font-family: 'Century Gothic';
   color: rgba(0, 0, 0, 0.8);
+  margin: 0;
 }
 
 .submit-options {
@@ -480,18 +496,43 @@ textarea {
   height: auto;
 }
 
-.card-content span {
+.card-content div {
   width: 100%;
   background-color: white;
   border-radius: 5px;
   padding: 6px 0 6px 8px;
   box-sizing: border-box;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
-.card-content span ~ span {
+.card-content div ~ div {
   margin-top: 8px;
 }
 
-.card-content span:last-child {
+.card-content div:last-child {
   margin-bottom: 8px;
+}
+
+.sub-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  word-wrap: break-word;
+}
+
+.sub-card-title {
+  flex: 1;
+  word-wrap: break-word;
+}
+
+.sub-card .fas {
+  margin-right: 5px;
+}
+
+.sub-card .fas:hover {
+  cursor: grab;
+}
+
+.sub-card .fas:active {
+  cursor: grabbing;
 }

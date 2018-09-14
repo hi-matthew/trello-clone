@@ -81,13 +81,14 @@ function createListColumn(e) {
 
   const cardTitle = document.createElement('p');
   cardTitle.classList.add('card-title');
+  cardTitle.setAttribute('contenteditable', 'true');
   cardHeading.appendChild(cardTitle);
   cardTitle.innerHTML = value;
 
   const cardHeadingOptions = document.createElement('span');
   cardHeadingOptions.classList.add('card-options');
   cardHeading.appendChild(cardHeadingOptions);
-  cardHeadingOptions.innerHTML = '<i class="fas fa-ellipsis-h"></i>';
+  cardHeadingOptions.innerHTML = '<i class="fas fa-bars move-list"></i><i class="fas fa-ellipsis-h"></i>';
 
   const cardContent = document.createElement('div');
   cardContent.classList.add('card-content');
@@ -101,12 +102,18 @@ function createListColumn(e) {
   const cardDetailsForm = document.createElement('form');
   addCardDetails.appendChild(cardDetailsForm);
   cardDetailsForm.innerHTML = 
-    `<textarea rows='4' columns='4' autofocus></textarea>
+    `<input type='text' class='card-details-input'>
       <div class='submit-options'>
         <span class="invisibile"></span>
         <input type='submit' value = 'Add card' class='add-card'>
         <i class="fas fa-times close-details"></i>
       </div>`
+
+  canvas.id = 'canvas';
+  Sortable.create(canvas, {
+    handle: '.move-list',
+    animation: 150
+  });
 
   addListButton.innerHTML === '+ Add a list' ? addListButton.innerHTML = '+ Add another list' : '';
   closeList();
@@ -125,23 +132,47 @@ document.body.addEventListener('click', (e) => {
     tar.nextSibling.firstElementChild.focus();
   }
 
-  tar.className === 'fas fa-times close-details' ? tar.parentNode.parentNode.parentNode.classList.remove('open') : '';
+  if (tar.className === 'fas fa-times close-details') {
+    tar.parentNode.parentNode.parentNode.classList.remove('open');
+    tar.parentNode.parentNode.reset();
+  }
 
   if (tar.className === 'add-card') {
     e.preventDefault();
     const textarea = tar.parentNode.parentNode.firstElementChild;
+  
+    const newCard = document.createElement('div');
+    newCard.classList.add('sub-card');
     
-    const newCard = document.createElement('span');
-    if(textarea.value.trim().length < 1) {
+    const textSpan = document.createElement('span');
+    textSpan.classList.add('sub-card-title');
+    textSpan.setAttribute('contenteditable', 'true');
+    newCard.appendChild(textSpan);
+    const handle = document.createElement('span');
+    handle.innerHTML = "<i class='fas fa-bars'></i><i class='fas fa-ellipsis-h'></i>";
+    newCard.appendChild(handle);
+
+    if (textarea.value.trim().length < 1) {
       textarea.parentNode.reset();
       textarea.focus();
     } else {
-      newCard.innerHTML = textarea.value;
+      textSpan.innerHTML = textarea.value;
       textarea.parentNode.reset();
       const cardContent = tar.parentNode.parentNode.parentNode.previousSibling;
       cardContent.appendChild(newCard);
       textarea.focus();
     }  
+
+    const cardContainer = newCard.parentNode;
+    cardContainer.id = 'cardContainer';
+
+    [...document.querySelectorAll('#cardContainer')].map( cardContainer => {
+      Sortable.create(cardContainer, {
+        handle: '.fa-bars',
+        group: 'card',
+        animation: 150
+      });
+    });
   }
 });
 
