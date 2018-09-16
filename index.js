@@ -90,6 +90,13 @@ function createListColumn(e) {
   cardHeading.appendChild(cardHeadingOptions);
   cardHeadingOptions.innerHTML = '<i class="fas fa-bars move-list"></i><i class="fas fa-ellipsis-h"></i>';
 
+  const optionAlert = document.createElement('div');
+  optionAlert.innerHTML = 
+    `<span class="remove-list">Remove list</span>
+    <span class="clear-list-items">Clear list items</span>`;
+  optionAlert.classList.add('option-alert');
+  cardHeadingOptions.appendChild(optionAlert);
+
   const cardContent = document.createElement('div');
   cardContent.classList.add('card-content');
   cardContent.id = 'cardContent';
@@ -133,7 +140,7 @@ function createListColumn(e) {
 
 document.body.addEventListener('click', (e) => {
   let tar = e.target;
-  console.log(tar.parentNode);
+  console.log(tar);
 
   if (tar.className === 'card-details-span') {
     tar.parentNode.classList.add('open');
@@ -159,8 +166,14 @@ document.body.addEventListener('click', (e) => {
     newCard.appendChild(textSpan);
 
     const handle = document.createElement('span');
+    handle.classList.add('sub-card-options');
     handle.innerHTML = "<i class='fas fa-bars'></i><i class='fas fa-ellipsis-h'></i>";
     newCard.appendChild(handle);
+
+    const optionAlert = document.createElement('div');
+    optionAlert.classList.add('option-alert');
+    handle.appendChild(optionAlert);
+    optionAlert.innerHTML = "<span class='remove-items'>Remove item</span>";
 
     if (textarea.value.trim().length < 1) {
       textarea.parentNode.reset();
@@ -174,10 +187,39 @@ document.body.addEventListener('click', (e) => {
     }  
   }
 
-  if (tar.className === 'fas fa-ellipsis-h' && tar.parentNode.className === 'card-options') {
-       const optionAlert = document.createElement('div');
-       optionAlert.classList.add('option-alert');
+  if (tar.className.includes('fa-ellipsis-h') && tar.parentNode.className === 'card-options') {
+    const optionsAlert = tar.nextSibling;
+    optionsAlert.classList.toggle('active');
+    tar.classList.toggle('active');
 
+    optionsAlert.style.top = `${tar.offsetTop}px`;
+    optionsAlert.style.left = `${tar.offsetLeft + tar.offsetWidth + 4}px`;
+  }
+
+  if (tar.className === 'remove-list') {
+    const thisList = tar.parentNode.parentNode.parentNode.parentNode.parentNode;
+    thisList.parentNode.removeChild(thisList);
+  }
+
+  if (tar.className === 'clear-list-items') {
+    const cards = tar.parentNode.parentNode.parentNode.nextSibling;
+    cards.innerHTML = '';
+    tar.parentNode.classList.remove('active');
+    tar.parentNode.previousSibling.classList.remove('active');
+  }
+
+  if (tar.className.includes('fa-ellipsis-h') && tar.parentNode.className === 'sub-card-options') {
+    const optionsAlert = tar.nextSibling;
+    optionsAlert.classList.toggle('active');
+    tar.classList.toggle('active');
+
+    optionsAlert.style.top = `${tar.offsetTop}px`;
+    optionsAlert.style.left = `${tar.offsetLeft + tar.offsetWidth + 9}px`;
+  }
+
+  if (tar.className === 'remove-items') {
+    const thisTask = tar.parentNode.parentNode.parentNode;
+    thisTask.parentNode.removeChild(thisTask);
   }
 });
 

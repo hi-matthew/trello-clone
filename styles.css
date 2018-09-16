@@ -506,7 +506,7 @@ input[type='submit'] {
   margin-top: 8px;
 }
 
-.card-content div:last-child {
+.card-content div:last-child.sub-card {
   margin-bottom: 2px;
 }
 
@@ -526,10 +526,61 @@ input[type='submit'] {
   margin-right: 5px;
 }
 
-.sub-card .fas:hover {
+.fas.fa-bars:hover {
   cursor: grab;
 }
 
-.sub-card .fas:active {
+.fas.fa-bars:active {
   cursor: grabbing;
 }
+
+.sub-card-options .fa-ellipsis-h.active {
+  background-color: rgb(228, 228, 228);
+  border-radius: 5px;
+}
+
+.option-alert {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border-radius: 5px;
+  width: 200px;
+  height: auto;
+  z-index: 1;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  padding: 5px 0; 
+  flex-direction: column;
+}
+
+.option-alert.active {
+  display: flex;
+  transform-origin: top center;
+  animation: fadeIn 300ms normal forwards;
+}
+
+.option-alert span {
+  font-size: 15px;
+  font-family: 'Century Gothic';
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  padding: 8px 0 8px 15px;
+}
+
+.option-alert span:hover {
+  background-color: rgb(236, 236, 236);
+  color: rgba(247, 27, 27, 0.8);
+  width: auto;
+  transition: background-color 300ms ease, color 300ms ease;
+  cursor: pointer;
+}
+
+.card-options .fa-ellipsis-h.active {
+  background-color: white;
+  border-radius: 5px;
+}
+
+.sub-card .option-alert {
+  width: 200px;
+}
+
