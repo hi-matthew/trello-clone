@@ -1,0 +1,22 @@
+{
+  "name": "trello-clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cheeew/trello-clone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cheeew/trello-clone/issues"
+  },
+  "homepage": "https://github.com/cheeew/trello-clone#readme",
+  "dependencies": {
+    "sortablejs": "^1.7.0"
+  }
+}
