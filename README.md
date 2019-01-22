@@ -24,8 +24,8 @@ Install all project dependencies:
 npm install
 ```
 
-Run the development server:
+Run a development server:
 
-```bash
-npm run start
-```
+This app doesn't use webpack or any framework that comes with its own development server.
+I recommend user a live server plugin (there's literally one called Live Server) to run this application.
+

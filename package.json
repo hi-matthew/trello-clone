@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cheeew/trello-clone.git"
+    "url": "git+https://github.com/matthewoctober/trello-clone.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cheeew/trello-clone/issues"
+    "url": "https://github.com/matthewoctober/trello-clone/issues"
   },
-  "homepage": "https://github.com/cheeew/trello-clone#readme",
+  "homepage": "https://github.com/matthewoctober/trello-clone#readme",
   "dependencies": {
     "sortablejs": "^1.7.0"
   }
